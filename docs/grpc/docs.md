@@ -167,7 +167,6 @@
     - [FacetHit](#qdrant-FacetHit)
     - [FacetResponse](#qdrant-FacetResponse)
     - [FacetValue](#qdrant-FacetValue)
-    - [FeedbackInput](#qdrant-FeedbackInput)
     - [FeedbackItem](#qdrant-FeedbackItem)
     - [FeedbackStrategy](#qdrant-FeedbackStrategy)
     - [FieldCondition](#qdrant-FieldCondition)
@@ -251,6 +250,7 @@
     - [RecommendPointGroups](#qdrant-RecommendPointGroups)
     - [RecommendPoints](#qdrant-RecommendPoints)
     - [RecommendResponse](#qdrant-RecommendResponse)
+    - [RelevanceFeedbackInput](#qdrant-RelevanceFeedbackInput)
     - [RepeatedIntegers](#qdrant-RepeatedIntegers)
     - [RepeatedStrings](#qdrant-RepeatedStrings)
     - [RetrievedPoint](#qdrant-RetrievedPoint)
@@ -2994,23 +2994,6 @@ The JSON representation for `Value` is a JSON value.
 
 
 
-<a name="qdrant-FeedbackInput"></a>
-
-### FeedbackInput
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| target | [VectorInput](#qdrant-VectorInput) |  | The original query vector |
-| feedback | [FeedbackItem](#qdrant-FeedbackItem) | repeated | Previous results scored by the feedback provider. |
-| strategy | [FeedbackStrategy](#qdrant-FeedbackStrategy) |  | Formula and trained coefficients to use. |
-
-
-
-
-
-
 <a name="qdrant-FeedbackItem"></a>
 
 ### FeedbackItem
@@ -4157,7 +4140,7 @@ For example, if `oversampling` is 2.4 and `limit` is 100, then 240 vectors will 
 | formula | [Formula](#qdrant-Formula) |  | Score boosting via an arbitrary formula |
 | nearest_with_mmr | [NearestInputWithMmr](#qdrant-NearestInputWithMmr) |  | Search nearest neighbors, but re-rank based on the Maximal Marginal Relevance algorithm. |
 | rrf | [Rrf](#qdrant-Rrf) |  | Parameterized reciprocal rank fusion |
-| feedback | [FeedbackInput](#qdrant-FeedbackInput) |  | Search with feedback from some oracle. |
+| relevance_feedback | [RelevanceFeedbackInput](#qdrant-RelevanceFeedbackInput) |  | Search with feedback from some oracle. |
 
 
 
@@ -4473,6 +4456,23 @@ For example, if `oversampling` is 2.4 and `limit` is 100, then 240 vectors will 
 | result | [ScoredPoint](#qdrant-ScoredPoint) | repeated |  |
 | time | [double](#double) |  | Time spent to process |
 | usage | [Usage](#qdrant-Usage) | optional |  |
+
+
+
+
+
+
+<a name="qdrant-RelevanceFeedbackInput"></a>
+
+### RelevanceFeedbackInput
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| target | [VectorInput](#qdrant-VectorInput) |  | The original query vector |
+| feedback | [FeedbackItem](#qdrant-FeedbackItem) | repeated | Previous results scored by the feedback provider. |
+| strategy | [FeedbackStrategy](#qdrant-FeedbackStrategy) |  | Formula and trained coefficients to use. |
 
 
 
