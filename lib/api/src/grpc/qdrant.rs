@@ -3653,8 +3653,6 @@ pub mod collections_internal_client {
                 .insert(GrpcMethod::new("qdrant.CollectionsInternal", "Initiate"));
             self.inner.unary(req, path, codec).await
         }
-        /// *
-        ///
         /// Wait for a shard to get into the given state
         pub async fn wait_for_shard_state(
             &mut self,
@@ -3770,8 +3768,6 @@ pub mod collections_internal_server {
             tonic::Response<super::CollectionOperationResponse>,
             tonic::Status,
         >;
-        /// *
-        ///
         /// Wait for a shard to get into the given state
         async fn wait_for_shard_state(
             &self,
