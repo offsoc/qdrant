@@ -314,16 +314,16 @@ enum BinaryQuantizationEncoding {
 }
 
 message BinaryQuantizationQueryEncoding {
-    enum Setting {
-      Default = 0;
-      Binary = 1;
-      Scalar4Bits = 2;
-      Scalar8Bits = 3;
-    }
+  enum Setting {
+    Default = 0;
+    Binary = 1;
+    Scalar4Bits = 2;
+    Scalar8Bits = 3;
+  }
 
-    oneof variant {
-        Setting setting = 4;
-    }
+  oneof variant {
+    Setting setting = 4;
+  }
 }
 
 message BinaryQuantization {

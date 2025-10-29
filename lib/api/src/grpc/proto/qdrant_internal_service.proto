@@ -5,10 +5,12 @@ option csharp_namespace = "Qdrant.Client.Grpc";
 
 service QdrantInternal {
   // Get current commit and term on the target node.
-  rpc GetConsensusCommit (GetConsensusCommitRequest) returns (GetConsensusCommitResponse) {}
+  rpc GetConsensusCommit(GetConsensusCommitRequest)
+      returns (GetConsensusCommitResponse) {}
 
   // Wait until the target node reached the given commit ID.
-  rpc WaitOnConsensusCommit (WaitOnConsensusCommitRequest) returns (WaitOnConsensusCommitResponse) {}
+  rpc WaitOnConsensusCommit(WaitOnConsensusCommitRequest)
+      returns (WaitOnConsensusCommitResponse) {}
 }
 
 message GetConsensusCommitRequest {}
